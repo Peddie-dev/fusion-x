@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 type Project = {
@@ -7,9 +8,10 @@ type Project = {
   description: string;
   industry: string;
   services: string;
-  accent: string; // tailwind-safe hex used for icon ring, dot, industry text
+  accent: string;
   screenshot: string;
   screenshotBg: string;
+  caseStudyHref?: string; // only set once a case study page exists
 };
 
 const PROJECTS: Project[] = [
@@ -23,6 +25,7 @@ const PROJECTS: Project[] = [
     accent: "#3BAE6E",
     screenshot: "/digifarm.png",
     screenshotBg: "#ffffff",
+    caseStudyHref: "/work",
   },
   {
     name: "AfroCom",
@@ -51,7 +54,6 @@ const PROJECTS: Project[] = [
 export default function Work() {
   return (
     <section className="mx-20 mt-32">
-      {/* Header */}
       <div className="flex items-end justify-between">
         <div className="max-w-[560px]">
           <p className="text-xs font-medium tracking-wide text-[#A5B0C5]">
@@ -67,25 +69,23 @@ export default function Work() {
           </p>
         </div>
 
-        
-        <a  href="#"
+        <Link
+          href="/work"
           className="flex shrink-0 items-center gap-2 text-sm text-white"
         >
           View More
           <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20">
             <ArrowRight size={14} />
           </span>
-        </a>
+        </Link>
       </div>
 
-      {/* Case study cards */}
-      <div className="mt-10 flex flex-col gap-5">
+      <div className="mt-10 flex flex-col gap-8">
         {PROJECTS.map((project) => (
           <div
             key={project.name}
-            className="flex items-center gap-8 rounded-2xl border border-white/[0.08] bg-[#15141c] p-8"
+            className="flex items-stretch gap-8 rounded-2xl border border-white/[0.08] bg-[#15141c] p-10"
           >
-            {/* Left: text panel */}
             <div className="w-[280px] shrink-0">
               <div
                 className="mb-5 flex h-9 w-9 items-center justify-center rounded-full border"
@@ -134,29 +134,37 @@ export default function Work() {
                 </p>
               </div>
 
-              
-              <a  href="#"
-                className="flex items-center gap-2 text-[13px] text-white"
-              >
-                view Case Study
-                <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/20">
-                  <ArrowRight size={11} />
+              {project.caseStudyHref ? (
+                <Link
+                  href={project.caseStudyHref}
+                  className="flex items-center gap-2 text-[13px] text-white"
+                >
+                  Read Case Study
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/20">
+                    <ArrowRight size={11} />
+                  </span>
+                </Link>
+              ) : (
+                <span className="flex items-center gap-2 text-[13px] text-white/30">
+                  Read Case Study
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/20">
+                    <ArrowRight size={11} />
+                  </span>
                 </span>
-              </a>
+              )}
             </div>
 
-            {/* Right: screenshot */}
-           <div
-  className="relative min-h-[320px] flex-1 overflow-hidden rounded-[10px]"
-  style={{ backgroundColor: project.screenshotBg }}
->
-  <Image
-    src={project.screenshot}
-    alt={`${project.name} product screenshot`}
-    fill
-    className="object-cover object-top"
-  />
-</div>
+            <div
+              className="relative min-h-[400px] flex-1 overflow-hidden rounded-[10px]"
+              style={{ backgroundColor: project.screenshotBg }}
+            >
+              <Image
+                src={project.screenshot}
+                alt={`${project.name} product screenshot`}
+                fill
+                className="object-cover object-top"
+              />
+            </div>
           </div>
         ))}
       </div>
