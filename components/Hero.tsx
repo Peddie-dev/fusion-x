@@ -11,17 +11,26 @@ const BRAND_LOGOS = [
 
 export default function Hero() {
   return (
-    <section className="relative mx-20 mt-40 overflow-hidden">
-      {/* Orb asset from Figma */}
-      <div className="pointer-events-none absolute -right-10 top-4 h-[420px] w-[420px]">
-  <Image
-    src="/orb.png"
-    alt=""
-    fill
-    priority
-    className="object-contain"
-  />
-</div>
+    <section className="relative mx-20 mt-24 overflow-hidden">
+      {/* Glow behind the orb */}
+      <div
+        className="pointer-events-none absolute -right-16 top-8 h-[400px] w-[400px] rounded-full blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(139,110,246,0.55) 0%, rgba(110,124,246,0.35) 45%, transparent 75%)",
+        }}
+      />
+
+      {/* Orb asset */}
+      <div className="pointer-events-none absolute -right-10 top-12 h-[380px] w-[380px]">
+        <Image
+          src="/orb.png"
+          alt=""
+          fill
+          priority
+          className="object-contain"
+        />
+      </div>
 
       {/* Copy block */}
       <div className="relative z-10 max-w-[560px]">
