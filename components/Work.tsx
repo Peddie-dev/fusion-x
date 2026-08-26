@@ -53,13 +53,13 @@ const PROJECTS: Project[] = [
 
 export default function Work() {
   return (
-    <section className="mx-20 mt-32">
-      <div className="flex items-end justify-between">
+    <section className="mx-5 mt-20 md:mx-20 md:mt-32">
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div className="max-w-[560px]">
           <p className="text-xs font-medium tracking-wide text-[#A5B0C5]">
             SELECTED WORK
           </p>
-          <h2 className="mt-4 text-[32px] font-bold leading-tight text-white">
+          <h2 className="mt-4 text-[28px] font-bold leading-tight text-white md:text-[32px]">
             Designing products that solve real-world business challenges.
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-[#A5B0C5]">
@@ -84,9 +84,9 @@ export default function Work() {
         {PROJECTS.map((project) => (
           <div
             key={project.name}
-            className="flex items-stretch gap-8 rounded-2xl border border-white/[0.08] bg-[#15141c] p-10"
+            className="flex flex-col-reverse items-stretch gap-6 rounded-2xl border border-white/[0.08] bg-[#15141c] p-5 md:flex-row md:gap-8 md:p-10"
           >
-            <div className="w-[280px] shrink-0">
+            <div className="w-full shrink-0 md:w-[280px]">
               <div
                 className="mb-5 flex h-9 w-9 items-center justify-center rounded-full border"
                 style={{ borderColor: project.accent, color: project.accent }}
@@ -155,7 +155,7 @@ export default function Work() {
             </div>
 
             <div
-              className="relative min-h-[400px] flex-1 overflow-hidden rounded-[10px]"
+              className="relative min-h-[220px] flex-1 overflow-hidden rounded-[10px] md:min-h-[400px]"
               style={{ backgroundColor: project.screenshotBg }}
             >
               <Image

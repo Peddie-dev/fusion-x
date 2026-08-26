@@ -40,7 +40,7 @@ export default function FinalCta() {
         {FLOATING_CARDS.map((card, i) => (
           <div
             key={i}
-            className={`absolute ${card.position} rounded-xl border border-[#8B6EF6]/30 bg-[#15121f] px-4 py-3`}
+            className={`absolute hidden ${card.position} rounded-xl border border-[#8B6EF6]/30 bg-[#15121f] px-4 py-3 md:block`}
           >
             {card.label ? (
               <div className="flex items-center gap-2">
@@ -55,8 +55,8 @@ export default function FinalCta() {
           </div>
         ))}
 
-        <div className="mx-auto max-w-[640px] px-10">
-          <h2 className="text-[38px] font-bold leading-tight text-white">
+        <div className="mx-auto max-w-[640px] px-5 md:px-10">
+          <h2 className="text-[28px] font-bold leading-tight text-white md:text-[38px]">
             Designing products that move businesses{" "}
             <span className="text-[#8B6EF6]">forward</span>.
           </h2>

@@ -66,9 +66,9 @@ const PROJECTS: Project[] = [
 
 export default function Impact() {
   return (
-    <section className="mx-20 mt-32">
+    <section className="mx-5 mt-20 md:mx-20 md:mt-32">
       <p className="text-xs font-medium tracking-wide text-[#A5B0C5]">IMPACT</p>
-      <h2 className="mt-4 max-w-[600px] text-[32px] font-bold leading-tight text-white">
+      <h2 className="mt-4 max-w-[600px] text-[28px] font-bold leading-tight text-white md:text-[32px]">
         Designing products that deliver results.
       </h2>
       <p className="mt-4 max-w-[500px] text-sm leading-relaxed text-[#A5B0C5]">
@@ -81,9 +81,9 @@ export default function Impact() {
         {PROJECTS.map((project, idx) => (
           <div key={project.name}>
             <div className="border-t border-white/[0.08]" />
-            <div className="flex gap-12 py-14">
+            <div className="flex flex-col gap-8 py-10 md:flex-row md:gap-12 md:py-14">
               {/* Left: text panel */}
-              <div className="w-[320px] shrink-0">
+              <div className="w-full shrink-0 md:w-[320px]">
                 <div
                   className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border"
                   style={{ borderColor: BRAND, color: BRAND }}
@@ -178,7 +178,7 @@ export default function Impact() {
 
               {/* Right: device screenshot */}
               <div
-                className="relative min-h-[280px] flex-1 overflow-hidden rounded-2xl"
+                className="relative min-h-[220px] flex-1 overflow-hidden rounded-2xl md:min-h-[280px]"
                 style={{ backgroundColor: project.imageBg }}
               >
                 <Image

@@ -41,13 +41,13 @@ export default function Approach() {
     setActiveIndex((i) => (i === STAGES.length - 1 ? 0 : i + 1));
 
   return (
-    <section className="mx-20 mt-32 flex gap-16">
+    <section id="process" className="mx-5 mt-20 flex flex-col gap-8 md:mx-20 md:mt-32 md:flex-row md:gap-16">
       {/* Left: heading + stage tabs */}
-      <div className="w-[320px] shrink-0">
+      <div className="w-full shrink-0 md:w-[320px]">
         <p className="text-xs font-medium tracking-wide text-[#A5B0C5]">
           OUR APPROACH
         </p>
-        <h2 className="mt-4 text-[32px] font-bold leading-tight text-white">
+          <h2 className="mt-4 text-[28px] font-bold leading-tight text-white md:text-[32px]">
           How great products come to life.
         </h2>
 

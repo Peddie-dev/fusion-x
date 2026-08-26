@@ -33,13 +33,13 @@ const CAPABILITIES: Capability[] = [
 
 export default function Capabilities() {
   return (
-    <section className="mx-20 mt-32">
+    <section id="services" className="mx-5 mt-20 md:mx-20 md:mt-32">
       {/* Header */}
       <div className="max-w-[700px]">
         <p className="text-xs font-medium tracking-wide text-[#A5B0C5]">
           CAPABILITIES
         </p>
-        <h2 className="mt-4 text-4xl font-bold leading-tight text-white">
+          <h2 className="mt-4 text-[28px] font-bold leading-tight text-white md:text-4xl">
           Strategic design support for ambitious product teams.
         </h2>
         <p className="mt-5 text-[15px] leading-relaxed text-[#A5B0C5]">
@@ -57,7 +57,7 @@ export default function Capabilities() {
             className="rounded-2xl border border-white/[0.08] bg-[#15141c] p-6"
           >
             {/* Icon illustration — replace src once exported from Figma */}
-            <div className="mb-5 flex h-[201px] w-full items-center justify-center rounded-[10px] border border-dashed border-white/15">
+            <div className="mb-5 flex h-[180px] w-full items-center justify-center overflow-hidden rounded-[10px] md:h-[201px]">
               <Image
                 src={cap.icon}
                 alt=""

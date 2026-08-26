@@ -11,8 +11,8 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/[0.08] bg-[#0d0c14] px-10 py-8">
-      <div className="flex items-center justify-between">
+    <footer className="border-t border-white/[0.08] bg-[#0d0c14] px-5 py-8 md:px-10">
+      <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
         <div>
           <div className="text-lg font-bold text-white">
             Fusion<span className="text-[#8B6EF6]">X</span>
@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <nav className="flex gap-7 text-sm text-white/80">
+        <nav className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/80">
           {NAV_LINKS.map((link) => (
             <a key={link} href="#" className="hover:text-white">
               {link}
@@ -35,7 +35,7 @@ export default function Footer() {
         </button>
       </div>
 
-      <div className="mt-6 flex items-center justify-between border-t border-white/[0.08] pt-5">
+      <div className="mt-6 flex flex-col gap-5 border-t border-white/[0.08] pt-5 md:flex-row md:items-center md:justify-between">
         <p className="text-xs leading-relaxed text-white/50">
           © 2026 FusionX Studios.
           <br />

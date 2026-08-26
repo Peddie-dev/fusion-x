@@ -27,7 +27,7 @@ const CONTACT_ITEMS = [
 
 export default function Contact() {
   return (
-    <section className="relative mt-32 overflow-hidden">
+    <section id="contact" className="relative mt-20 overflow-hidden md:mt-32">
       {/* Background nebula image */}
       <div className="absolute inset-0 -z-10">
         <div
@@ -39,13 +39,13 @@ export default function Contact() {
         />
       </div>
 
-      <div className="mx-20 flex items-start justify-between gap-10 py-20">
+      <div className="mx-5 flex flex-col items-start gap-10 py-12 md:mx-20 md:flex-row md:justify-between md:py-20">
         {/* Left: copy */}
-        <div className="w-[340px] shrink-0 pt-5">
+        <div className="w-full shrink-0 pt-0 md:w-[340px] md:pt-5">
           <p className="text-xs font-semibold tracking-wide text-[#8B6EF6]">
             LET&apos;S WORK TOGETHER
           </p>
-          <h2 className="mt-4 text-4xl font-bold leading-tight text-white">
+          <h2 className="mt-4 text-[28px] font-bold leading-tight text-white md:text-4xl">
             Have a project in mind?
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-[#A5B0C5]">
@@ -60,7 +60,7 @@ export default function Contact() {
         </div>
 
         {/* Right: contact info card */}
-        <div className="grid w-[460px] shrink-0 grid-cols-2 gap-x-10 gap-y-7 rounded-[20px] border border-white/10 bg-[#14121e]/70 p-8 backdrop-blur-md">
+        <div className="grid w-full shrink-0 grid-cols-1 gap-x-10 gap-y-7 rounded-[20px] border border-white/10 bg-[#14121e]/70 p-6 backdrop-blur-md sm:grid-cols-2 md:w-[460px] md:p-8">
           {CONTACT_ITEMS.map((item) => (
             <div key={item.label}>
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#8B6EF6]/15 text-[#8B6EF6]">

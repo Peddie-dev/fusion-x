@@ -32,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${satoshi.variable}`}>
-      <body className="bg-[#0d0d12] antialiased">{children}</body>
+      <body className="overflow-x-hidden bg-[#0d0d12] antialiased">{children}</body>
     </html>
   );
 }

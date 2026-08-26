@@ -73,6 +73,7 @@ const TAG_ICONS = [Users, Compass, Layers, Palette];
 export default function WorkPage() {
   const [activeSection, setActiveSection] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [readingComplete, setReadingComplete] = useState(false);
   const [activeSolutionTab, setActiveSolutionTab] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -84,7 +85,13 @@ export default function WorkPage() {
       const rect = el.getBoundingClientRect();
       const total = rect.height - window.innerHeight;
       const scrolled = Math.min(Math.max(-rect.top, 0), total);
-      setProgress(total > 0 ? Math.round((scrolled / total) * 100) : 0);
+      const nextProgress = total > 0 ? Math.round((scrolled / total) * 100) : 0;
+      setProgress(nextProgress);
+      setReadingComplete((prev) => {
+        if (nextProgress >= 97) return true;
+        if (nextProgress < 88) return false;
+        return prev;
+      });
 
       const offsets = SECTIONS.map((s) => {
         const node = document.getElementById(s.id);
@@ -104,76 +111,104 @@ export default function WorkPage() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const ctaCard = (
+    <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+      <p className="font-heading text-sm font-semibold text-white">
+        Interested in working together?
+      </p>
+      <p className="mt-2 text-xs leading-relaxed text-[#A5B0C5]">
+        Helping startups and businesses design better digital products.
+      </p>
+      <button className="mt-4 w-full rounded-lg bg-gradient-to-r from-[#6E7CF6] to-[#8B6EF6] py-2.5 text-sm font-medium text-white">
+        Let&apos;s Talk
+      </button>
+      <div className="mt-4 flex gap-3 text-white/60">
+        <FaFacebookF size={13} />
+        <FaInstagram size={13} />
+        <FaTiktok size={13} />
+      </div>
+      <p className="mt-3 text-[11px] text-white/40">
+        © 2026 FusionX Studios.
+        <br />
+        Designed in Nairobi. Built for the world.
+      </p>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-[#0d0d12]">
       <Navbar />
 
-      <div className="mx-20 mt-16 flex gap-16">
+      <div
+        className={`fixed inset-x-0 top-[80px] z-30 transition-all duration-500 ease-in-out md:top-[128px] lg:hidden ${
+          readingComplete
+            ? "pointer-events-none -translate-y-1 opacity-0"
+            : "translate-y-0 opacity-100"
+        }`}
+        aria-hidden={readingComplete}
+      >
+        <div className="h-0.5 w-full bg-white/10">
+          <div
+            className="h-full transition-all duration-300"
+            style={{ width: `${progress}%`, backgroundColor: BRAND }}
+          />
+        </div>
+      </div>
+
+      <div className="mx-5 mt-8 flex lg:mx-20 lg:mt-16 lg:gap-16">
         {/* Sidebar */}
-        <aside className="sticky top-32 h-fit w-[220px] shrink-0">
-          <p className="text-[11px] tracking-wide text-[#A5B0C5]">READING PROGRESS</p>
-          <p className="mt-2 text-sm text-white">
-            Section {activeSection + 1} of {SECTIONS.length}
-          </p>
-          <p className="mt-1 text-3xl font-bold" style={{ color: BRAND }}>
-            {progress}%
-          </p>
-          <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-white/10">
-            <div
-              className="h-full transition-all"
-              style={{ width: `${progress}%`, backgroundColor: BRAND }}
-            />
-          </div>
-
-          <p className="mt-8 text-[11px] tracking-wide text-[#A5B0C5]">ON THIS PAGE</p>
-          <div className="mt-3 flex flex-col gap-1">
-            {SECTIONS.map((section, i) => (
-              <button
-                key={section.id}
-                onClick={() => scrollTo(section.id)}
-                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                  i === activeSection ? "text-white" : "text-white/50 hover:text-white/80"
-                }`}
-                style={i === activeSection ? { backgroundColor: `${BRAND}22`, color: BRAND } : undefined}
-              >
-                <span className="text-xs">{String(i + 1).padStart(2, "0")}</span>
-                {section.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-10 rounded-xl border border-white/10 bg-white/[0.03] p-4">
-            <p className="font-heading text-sm font-semibold text-white">
-              Interested in working together?
+        <aside className="sticky top-32 hidden w-[220px] shrink-0 lg:block">
+          <div
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${
+              readingComplete
+                ? "mb-0 max-h-0 opacity-0"
+                : "mb-8 max-h-[52vh] overflow-y-auto opacity-100"
+            }`}
+          >
+            <p className="text-[11px] tracking-wide text-[#A5B0C5]">READING PROGRESS</p>
+            <p className="mt-2 text-sm text-white">
+              Section {activeSection + 1} of {SECTIONS.length}
             </p>
-            <p className="mt-2 text-xs leading-relaxed text-[#A5B0C5]">
-              Helping startups and businesses design better digital products.
+            <p className="mt-1 text-3xl font-bold" style={{ color: BRAND }}>
+              {progress}%
             </p>
-            <button className="mt-4 w-full rounded-lg bg-gradient-to-r from-[#6E7CF6] to-[#8B6EF6] py-2.5 text-sm font-medium text-white">
-              Let&apos;s Talk
-            </button>
-            <div className="mt-4 flex gap-3 text-white/60">
-              <FaFacebookF size={13} />
-              <FaInstagram size={13} />
-              <FaTiktok size={13} />
+            <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-white/10">
+              <div
+                className="h-full transition-all"
+                style={{ width: `${progress}%`, backgroundColor: BRAND }}
+              />
             </div>
-            <p className="mt-3 text-[11px] text-white/40">
-              © 2026 FusionX Studios.
-              <br />
-              Designed in Nairobi. Built for the world.
-            </p>
+
+            <p className="mt-8 text-[11px] tracking-wide text-[#A5B0C5]">ON THIS PAGE</p>
+            <div className="mt-3 flex flex-col gap-1">
+              {SECTIONS.map((section, i) => (
+                <button
+                  key={section.id}
+                  onClick={() => scrollTo(section.id)}
+                  className={`flex items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
+                    i === activeSection ? "text-white" : "text-white/50 hover:text-white/80"
+                  }`}
+                  style={i === activeSection ? { backgroundColor: `${BRAND}22`, color: BRAND } : undefined}
+                >
+                  <span className="text-xs">{String(i + 1).padStart(2, "0")}</span>
+                  {section.label}
+                </button>
+              ))}
+            </div>
           </div>
+
+          {ctaCard}
         </aside>
 
         {/* Main content */}
-        <div ref={contentRef} className="flex-1 pb-32">
+        <div ref={contentRef} className="min-w-0 flex-1 pb-24 lg:pb-32">
           <Link href="/" className="flex items-center gap-2 text-sm" style={{ color: BRAND }}>
             <ArrowLeft size={14} />
             Back to Projects
           </Link>
 
-          <div className="mt-8 flex items-start justify-between gap-10">
-            <div style={{ maxWidth: 420 }}>
+          <div className="mt-8 flex flex-col items-start gap-8 lg:flex-row lg:justify-between lg:gap-10">
+            <div className="max-w-[420px]">
               <span
                 className="inline-block rounded-full border px-3 py-1 text-[11px] font-medium tracking-wide"
                 style={{ borderColor: BRAND, color: BRAND }}
@@ -181,7 +216,7 @@ export default function WorkPage() {
                 CASE STUDY
               </span>
 
-              <h1 className="mt-5 text-[44px] font-bold leading-tight text-white">
+              <h1 className="mt-5 text-[32px] font-bold leading-tight text-white md:text-[44px]">
                 Digifarm Ecosystem
               </h1>
 
@@ -206,7 +241,7 @@ export default function WorkPage() {
               </div>
             </div>
 
-            <div className="relative h-[466px] w-[571px] shrink-0">
+            <div className="relative h-[280px] w-full shrink-0 lg:h-[466px] lg:w-[571px]">
               <Image
                 src="/work/digifarm-hero.png"
                 alt="Digifarm devices mockup"
@@ -217,7 +252,7 @@ export default function WorkPage() {
           </div>
 
           {/* Meta bar */}
-          <div className="mt-10 grid grid-cols-5 gap-6 rounded-2xl border border-white/[0.08] bg-[#15141c] p-6">
+          <div className="mt-10 grid grid-cols-2 gap-4 rounded-2xl border border-white/[0.08] bg-[#15141c] p-5 md:grid-cols-3 lg:grid-cols-5 lg:gap-6 lg:p-6">
             <div>
               <p className="text-[11px] tracking-wide" style={{ color: BRAND }}>COMPANY</p>
               <p className="mt-2 text-sm font-medium text-white">Safaricom</p>
@@ -254,7 +289,7 @@ export default function WorkPage() {
                 </div>
 
                 {section.id === "overview" && (
-                  <div className="mt-6 grid grid-cols-2 gap-10">
+                  <div className="mt-6 grid grid-cols-1 gap-10 md:grid-cols-2">
                     <div className="flex flex-col">
                       {OVERVIEW_POINTS.map((point, idx) => (
                         <div
@@ -300,7 +335,7 @@ export default function WorkPage() {
                 )}
 
                 {section.id === "challenge" && (
-                  <div className="mt-6 grid grid-cols-2 gap-10">
+                  <div className="mt-6 grid grid-cols-1 gap-10 md:grid-cols-2">
                     <div>
                       <h3 className="text-xl font-bold text-white">{CHALLENGE_INTRO.title}</h3>
                       <p className="mt-3 text-sm leading-relaxed text-[#A5B0C5]">
@@ -365,7 +400,7 @@ export default function WorkPage() {
 
                 {section.id === "research" && (
                   <div className="mt-6">
-                    <div className="grid grid-cols-2 gap-10">
+                    <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
                       <div>
                         <h3 className="text-xl font-bold text-white">{RESEARCH_INTRO.title}</h3>
                         {RESEARCH_INTRO.paragraphs.map((p, idx) => (
@@ -393,12 +428,10 @@ export default function WorkPage() {
                     </div>
 
                     {/* Photo collage — 5 tiles, explicit grid placement */}
-                    <div className="mt-10 grid h-[420px] grid-cols-3 grid-rows-2 gap-3">
+                    <div className="mt-10 grid h-auto grid-cols-1 gap-3 sm:h-[420px] sm:grid-cols-3 sm:grid-rows-2">
                       <div
-                        className="relative overflow-hidden"
+                        className="relative min-h-[200px] overflow-hidden sm:col-start-1 sm:row-span-2 sm:min-h-0"
                         style={{
-                          gridColumn: "1 / 2",
-                          gridRow: "1 / 3",
                           clipPath: "polygon(0 0, 100% 2%, 96% 100%, 0 100%)",
                         }}
                       >
@@ -414,10 +447,8 @@ export default function WorkPage() {
                       </div>
 
                       <div
-                        className="relative overflow-hidden"
+                        className="relative min-h-[200px] overflow-hidden sm:col-start-2 sm:row-start-1 sm:min-h-0"
                         style={{
-                          gridColumn: "2 / 3",
-                          gridRow: "1 / 2",
                           clipPath: "polygon(2% 0, 100% 0, 100% 100%, 0 94%)",
                         }}
                       >
@@ -433,10 +464,8 @@ export default function WorkPage() {
                       </div>
 
                       <div
-                        className="relative overflow-hidden"
+                        className="relative min-h-[200px] overflow-hidden sm:col-start-3 sm:row-start-1 sm:min-h-0"
                         style={{
-                          gridColumn: "3 / 4",
-                          gridRow: "1 / 2",
                           clipPath: "polygon(0 4%, 100% 0, 100% 100%, 4% 100%)",
                         }}
                       >
@@ -452,10 +481,8 @@ export default function WorkPage() {
                       </div>
 
                       <div
-                        className="relative overflow-hidden"
+                        className="relative min-h-[200px] overflow-hidden sm:col-start-2 sm:row-start-2 sm:min-h-0"
                         style={{
-                          gridColumn: "2 / 3",
-                          gridRow: "2 / 3",
                           clipPath: "polygon(4% 0, 100% 4%, 100% 100%, 0 100%)",
                         }}
                       >
@@ -471,10 +498,8 @@ export default function WorkPage() {
                       </div>
 
                       <div
-                        className="relative overflow-hidden"
+                        className="relative min-h-[200px] overflow-hidden sm:col-start-3 sm:row-start-2 sm:min-h-0"
                         style={{
-                          gridColumn: "3 / 4",
-                          gridRow: "2 / 3",
                           clipPath: "polygon(0 0, 100% 0, 96% 96%, 4% 100%)",
                         }}
                       >
@@ -491,7 +516,7 @@ export default function WorkPage() {
                     </div>
 
                     {/* Methods / Interviewees / Insights */}
-                    <div className="mt-12 grid grid-cols-3 gap-10">
+                    <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-3">
                       <div>
                         <h4 className="mb-5 text-lg font-bold text-white">Our Research Methods</h4>
                         <div className="flex flex-col gap-4">
@@ -630,7 +655,7 @@ export default function WorkPage() {
                         </div>
                         <p className="mt-2 text-sm text-[#A5B0C5]">{DESIGN_STRATEGY_INTRO}</p>
 
-                        <div className="mt-6 grid grid-cols-4 gap-4">
+                        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                           {DESIGN_PRINCIPLES.map((p) => (
                             <div
                               key={p.number}
@@ -658,7 +683,7 @@ export default function WorkPage() {
                             {DESIGN_APPROACH_INTRO.description}
                           </p>
 
-                          <div className="mt-8 flex justify-between">
+                          <div className="mt-8 flex flex-wrap justify-between gap-6">
                             {DESIGN_APPROACH_STEPS.map((step) => (
                               <div
                                 key={step.title}
@@ -742,7 +767,7 @@ export default function WorkPage() {
                     <p className="mt-8 text-xs font-bold tracking-wide" style={{ color: ACCENT }}>
                       01 PROJECT OUTCOME
                     </p>
-                    <div className="mt-4 grid grid-cols-4 gap-4">
+                    <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                       {IMPACT_OUTCOME_STATS.map((stat) => (
                         <div
                           key={stat.label}
@@ -766,7 +791,7 @@ export default function WorkPage() {
                     <p className="mt-8 text-xs font-bold tracking-wide" style={{ color: ACCENT }}>
                       02 UX IMPROVEMENTS
                     </p>
-                    <div className="mt-4 grid grid-cols-4 gap-4">
+                    <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                       {UX_IMPROVEMENTS.map((item) => (
                         <div
                           key={item.title}
@@ -798,7 +823,7 @@ export default function WorkPage() {
                       </div>
                       <div className="flex flex-col gap-3">
                         {BEFORE_AFTER.map((row) => (
-                          <div key={row.before} className="flex items-center gap-3">
+                          <div key={row.before} className="flex flex-col gap-3 md:flex-row md:items-center">
                             <div className="flex flex-1 items-center gap-2 rounded-lg bg-white/[0.03] px-4 py-3">
                               <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-500/15 text-red-400">
                                 <X size={11} />
@@ -823,7 +848,7 @@ export default function WorkPage() {
                     <p className="mt-8 text-xs font-bold tracking-wide" style={{ color: ACCENT }}>
                       04 VALIDATION
                     </p>
-                    <div className="mt-4 grid grid-cols-3 gap-4">
+                    <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
                       {VALIDATION_ITEMS.map((item) => (
                         <div
                           key={item.title}
@@ -868,7 +893,7 @@ export default function WorkPage() {
 
                 {section.id === "reflection" && (
                   <div className="mt-6">
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                       <div className="flex items-start gap-3">
                         <span className="text-4xl font-bold leading-none" style={{ color: ACCENT }}>
                           &ldquo;
@@ -898,7 +923,7 @@ export default function WorkPage() {
                       </div>
                     </div>
 
-                    <div className="mt-6 grid grid-cols-3 gap-4">
+                    <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
                       {REFLECTION_PRINCIPLES.map((p) => (
                         <div
                           key={p.title}
@@ -951,6 +976,8 @@ export default function WorkPage() {
               </div>
             ))}
           </div>
+
+          <div className="mt-16 lg:hidden">{ctaCard}</div>
         </div>
       </div>
 
