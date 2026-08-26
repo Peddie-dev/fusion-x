@@ -23,7 +23,7 @@ const PROJECTS: Project[] = [
     industry: "Agritech",
     services: "Product Design, UX Research, UI Design",
     accent: "#3BAE6E",
-    screenshot: "/digifarm.png",
+    screenshot: "/work/digifarm.png",
     screenshotBg: "#ffffff",
     caseStudyHref: "/work",
   },
@@ -35,7 +35,7 @@ const PROJECTS: Project[] = [
     industry: "Community Technology",
     services: "Product Design, UX Strategy, Design System",
     accent: "#8B6EF6",
-    screenshot: "/afrocom.png",
+    screenshot: "/work/afrocom.png",
     screenshotBg: "#fdf6e3",
   },
   {
@@ -46,7 +46,7 @@ const PROJECTS: Project[] = [
     industry: "Fintech Technology",
     services: "Product Design, Design System",
     accent: "#6E7CF6",
-    screenshot: "/empirefx.png",
+    screenshot: "/work/empirefx.png",
     screenshotBg: "#1a1a3d",
   },
 ];
