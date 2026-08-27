@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="56" height="144" viewBox="0 0 56 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 2085663414">
+<g id="Frame 2147228993">
+<circle id="Ellipse 250" cx="28" cy="28" r="27.6763" stroke="#8777F3" stroke-width="0.647368"/>
+<g id="Target">
+<g id="Icon">
+<path d="M28 38C33.5228 38 38 33.5228 38 28C38 22.4772 33.5228 18 28 18C22.4772 18 18 22.4772 18 28C18 33.5228 22.4772 38 28 38Z" stroke="#8777F3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M28 34C31.3137 34 34 31.3137 34 28C34 24.6863 31.3137 22 28 22C24.6863 22 22 24.6863 22 28C22 31.3137 24.6863 34 28 34Z" stroke="#8777F3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M28 30C29.1046 30 30 29.1046 30 28C30 26.8954 29.1046 26 28 26C26.8954 26 26 26.8954 26 28C26 29.1046 26.8954 30 28 30Z" stroke="#8777F3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+<line id="Line 6" x1="28.5" y1="56" x2="28.5" y2="144" stroke="#2A2B38"/>
+</g>
+</svg>

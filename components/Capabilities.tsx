@@ -4,7 +4,7 @@ type Capability = {
   title: string;
   description: string;
   tags: string[];
-  icon: string; // path to exported illustration
+  icon: string;
 };
 
 const CAPABILITIES: Capability[] = [
@@ -33,30 +33,27 @@ const CAPABILITIES: Capability[] = [
 
 export default function Capabilities() {
   return (
-    <section id="services" className="mx-5 mt-20 md:mx-20 md:mt-32">
-      {/* Header */}
-      <div className="max-w-[700px]">
-        <p className="text-xs font-medium tracking-wide text-[#A5B0C5]">
+    <section id="services" className="mx-5 pt-20 md:mx-20 md:pt-40">
+      <div className="max-w-[680px]">
+        <p className="text-[12px] font-medium capitalize leading-normal text-[#A5B0C5] md:text-[14px]">
           CAPABILITIES
         </p>
-          <h2 className="mt-4 text-[28px] font-bold leading-tight text-white md:text-4xl">
+        <h2 className="mt-[17px] text-[28px] font-bold leading-tight tracking-[0.96px] text-[#F8FAFC] md:text-[48px]">
           Strategic design support for ambitious product teams.
         </h2>
-        <p className="mt-5 text-[15px] leading-relaxed text-[#A5B0C5]">
+        <p className="mt-5 text-[15px] leading-relaxed text-[#A5B0C5] md:mt-8 md:text-[18px] md:leading-[32px]">
           From UX research and product strategy to interface design and
           design systems, FusionX helps teams create products that are
           clear, usable, and built to scale.
         </p>
       </div>
 
-      {/* Cards */}
-      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-3 md:gap-6">
         {CAPABILITIES.map((cap) => (
           <div
             key={cap.title}
-            className="rounded-2xl border border-white/[0.08] bg-[#15141c] p-6"
+            className="rounded-[24px] border border-white/[0.08] bg-[#1B1A24] p-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
           >
-            {/* Icon illustration — replace src once exported from Figma */}
             <div className="mb-5 flex h-[180px] w-full items-center justify-center overflow-hidden rounded-[10px] md:h-[201px]">
               <Image
                 src={cap.icon}
@@ -67,8 +64,10 @@ export default function Capabilities() {
               />
             </div>
 
-            <h3 className="text-lg font-semibold text-white">{cap.title}</h3>
-            <p className="mt-2 text-[13px] leading-relaxed text-[#A5B0C5]">
+            <h3 className="text-[22px] font-bold leading-[1.2] text-[#F8FAFC] md:text-[28px]">
+              {cap.title}
+            </h3>
+            <p className="mt-3 text-[13px] leading-[1.6] text-[#A5B0C5]/85 md:text-[16px]">
               {cap.description}
             </p>
 
@@ -76,7 +75,7 @@ export default function Capabilities() {
               {cap.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-white/[0.06] px-3 py-1.5 text-xs text-white"
+                  className="rounded-full border border-white/[0.08] bg-white/[0.06] px-3 py-1.5 text-[13px] font-medium leading-[1.4] text-white"
                 >
                   {tag}
                 </span>

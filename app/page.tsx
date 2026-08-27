@@ -12,7 +12,7 @@ import Impact from "@/components/Impact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0d0d12]">
+    <div className="relative mx-auto min-h-screen max-w-[1440px] bg-[#0d0d12]">
       <Navbar />
       <Hero />
       <Capabilities />

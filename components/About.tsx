@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 
 const STATS = [
   { value: "8+", label: "YEARS EXPERIENCE" },
@@ -9,32 +8,40 @@ const STATS = [
 
 export default function About() {
   return (
-    <section id="about" className="mx-5 mt-20 flex flex-col gap-8 md:mx-20 md:mt-32 md:flex-row md:gap-12">
-      {/* Left: copy */}
-      <div className="w-full shrink-0 pt-0 md:w-[340px] md:pt-5">
-        <p className="text-xs font-medium tracking-wide text-[#A5B0C5]">
+    <section
+      id="about"
+      className="mx-5 flex flex-col gap-8 pt-20 md:mx-20 md:flex-row md:items-start md:gap-10 md:pt-40"
+    >
+      <div className="w-full shrink-0 md:w-[480px]">
+        <p className="text-[12px] font-medium capitalize leading-normal text-[#A5B0C5] md:text-[14px]">
           ABOUT FUSIONX
         </p>
-          <h2 className="mt-4 text-[28px] font-bold leading-tight text-white md:text-[32px]">
+        <h2 className="mt-[17px] text-[28px] font-bold leading-tight tracking-[0.96px] text-[#F8FAFC] md:text-[48px]">
           Designing products that matter.
         </h2>
-        <p className="mt-4 text-sm leading-relaxed text-[#A5B0C5]">
+        <p className="mt-6 text-[15px] leading-relaxed text-[#A5B0C5] md:mt-10 md:text-[18px] md:leading-[32px]">
           FusionX is a product design studio focused on creating intuitive
-          digital experiences that solve real problems and drive
-          measurable results.
+          digital experiences that solve real problems and drive measurable
+          results.
         </p>
-        
-         <a href="#"
-          className="mt-5 flex w-fit items-center gap-2 text-sm text-[#8B6EF6]"
+
+        <a
+          href="#about"
+          className="mt-10 flex w-fit items-center gap-4 text-[18px] font-medium text-[#8777F3]"
         >
           Learn More About Us
-          <ArrowRight size={14} />
+          <img
+            src="/figma/arrow-up-right.svg"
+            alt=""
+            width={24}
+            height={24}
+            className="size-6"
+          />
         </a>
       </div>
 
-      {/* Right: portrait + floating UI graphic, with overlapping stats bar */}
-      <div className="relative flex-1 pb-10">
-        <div className="relative h-[360px] w-full overflow-hidden rounded-2xl">
+      <div className="relative flex-1 pb-16 md:pb-10">
+        <div className="relative h-[360px] w-full overflow-hidden rounded-[24px] shadow-[0_0_60px_rgba(127,105,212,0.12)] md:h-[620px]">
           <Image
             src="/charlo.png"
             alt="FusionX design process illustration"
@@ -43,16 +50,20 @@ export default function About() {
           />
         </div>
 
-        {/* Stats bar — overlaps the bottom of the image */}
-        <div className="absolute inset-x-3 -bottom-2 flex items-center justify-around rounded-2xl border border-white/10 bg-[#15141c]/95 px-3 py-4 shadow-2xl backdrop-blur md:inset-x-5 md:px-8 md:py-6">
-          {STATS.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-xl font-bold text-white md:text-3xl">
-                {stat.value}
+        <div className="absolute inset-x-3 bottom-6 flex items-center justify-around rounded-[24px] border border-white/[0.08] bg-[rgba(17,16,24,0.72)] px-3 py-5 shadow-2xl backdrop-blur-[16px] md:inset-x-[30px] md:h-[180px] md:px-8">
+          {STATS.map((stat, i) => (
+            <div key={stat.label} className="flex items-center">
+              <div className="text-center">
+                <div className="font-heading text-[28px] font-medium tracking-[-1.92px] text-white md:text-[64px] md:leading-[72px]">
+                  {stat.value}
+                </div>
+                <div className="mt-1 text-[9px] tracking-[1.68px] text-[#7F69D4] md:mt-3 md:text-[14px] md:leading-5">
+                  {stat.label}
+                </div>
               </div>
-              <div className="mt-1 text-[9px] tracking-wide text-[#A5B0C5] md:text-[11px]">
-                {stat.label}
-              </div>
+              {i < STATS.length - 1 && (
+                <div className="mx-2 hidden h-24 w-px bg-white/10 md:mx-5 md:block" />
+              )}
             </div>
           ))}
         </div>

@@ -41,13 +41,15 @@ export default function Approach() {
     setActiveIndex((i) => (i === STAGES.length - 1 ? 0 : i + 1));
 
   return (
-    <section id="process" className="mx-5 mt-20 flex flex-col gap-8 md:mx-20 md:mt-32 md:flex-row md:gap-16">
-      {/* Left: heading + stage tabs */}
-      <div className="w-full shrink-0 md:w-[320px]">
-        <p className="text-xs font-medium tracking-wide text-[#A5B0C5]">
+    <section
+      id="process"
+      className="mx-5 flex flex-col gap-8 overflow-x-hidden pt-20 md:mx-20 lg:flex-row lg:gap-12 lg:pt-40 xl:gap-16"
+    >
+      <div className="w-full min-w-0 lg:max-w-[380px] lg:shrink-0 xl:max-w-[424px]">
+        <p className="text-[12px] font-medium capitalize leading-normal text-[#A5B0C5] md:text-[14px]">
           OUR APPROACH
         </p>
-          <h2 className="mt-4 text-[28px] font-bold leading-tight text-white md:text-[32px]">
+        <h2 className="mt-[17px] text-[28px] font-bold leading-none tracking-[-2.16px] text-[#F8FAFC] lg:text-[56px] xl:text-[72px]">
           How great products come to life.
         </h2>
 
@@ -58,17 +60,18 @@ export default function Approach() {
               className="border-t border-white/[0.08] last:border-b"
             >
               <button
+                type="button"
                 onClick={() => setActiveIndex(i)}
-                className={`w-full py-4 text-left text-lg transition-colors ${
+                className={`w-full py-4 text-left text-[22px] font-medium leading-[1.1] transition-colors ${
                   i === activeIndex
-                    ? "font-semibold text-white"
-                    : "text-white/40 hover:text-white/70"
+                    ? "text-white"
+                    : "text-[#6E7384] hover:text-white/70"
                 }`}
               >
                 {stage.name}
               </button>
               {i === activeIndex && (
-                <p className="pb-4 text-sm leading-relaxed text-[#A5B0C5]">
+                <p className="pb-4 text-[16px] font-medium leading-[1.4] text-[#B1B4C5]">
                   {stage.description}
                 </p>
               )}
@@ -77,8 +80,7 @@ export default function Approach() {
         </div>
       </div>
 
-      {/* Right: image panel with prev/next controls */}
-      <div className="relative flex-1 overflow-hidden rounded-2xl border border-[#8B6EF6]/30 bg-[#0d0c14] p-4 pb-16">
+      <div className="relative min-w-0 flex-1 overflow-hidden rounded-2xl border border-[#8777F3]/30 bg-[#0d0c14] p-4 pb-16">
         <Image
           key={active.image}
           src={active.image}
@@ -88,9 +90,9 @@ export default function Approach() {
           className="h-auto w-full object-contain"
         />
 
-        {/* Prev/next controls */}
         <div className="absolute bottom-4 left-4 flex items-center gap-2">
           <button
+            type="button"
             onClick={goPrev}
             aria-label="Previous stage"
             className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-[#15121f] text-white hover:bg-white/10"
@@ -98,6 +100,7 @@ export default function Approach() {
             <ChevronLeft size={16} />
           </button>
           <button
+            type="button"
             onClick={goNext}
             aria-label="Next stage"
             className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-[#15121f] text-white hover:bg-white/10"
