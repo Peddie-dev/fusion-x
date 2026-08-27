@@ -46,14 +46,63 @@ export default function Approach() {
       className="mx-5 flex flex-col gap-8 overflow-x-hidden pt-20 md:mx-20 lg:flex-row lg:gap-12 lg:pt-40 xl:gap-16"
     >
       <div className="w-full min-w-0 lg:max-w-[380px] lg:shrink-0 xl:max-w-[424px]">
-        <p className="text-[12px] font-medium capitalize leading-normal text-[#A5B0C5] md:text-[14px]">
-          OUR APPROACH
-        </p>
-        <h2 className="mt-[17px] text-[28px] font-bold leading-none tracking-[-2.16px] text-[#F8FAFC] lg:text-[56px] xl:text-[72px]">
-          How great products come to life.
-        </h2>
+        <div className="flex flex-col gap-4">
+          <p className="text-[14px] font-medium capitalize leading-[17px] text-[#A5B0C5]">
+            OUR APPROACH
+          </p>
+          <h2 className="text-[28px] font-bold leading-[120%] tracking-[0.02em] text-[#F8FAFC] lg:text-[56px] lg:leading-none lg:tracking-[-2.16px] xl:text-[72px]">
+            How great products come to life.
+          </h2>
+          <p className="text-[16px] leading-6 text-[#A5B0C5] lg:hidden">
+            From UX research and product strategy to interface design and
+            design systems, FusionX helps teams create products that are
+            clear, usable, and built to scale.
+          </p>
+        </div>
 
-        <div className="mt-10 flex flex-col">
+        <div className="mt-10 flex gap-4 overflow-x-auto fx-hide-scrollbar pb-1 lg:hidden">
+          {STAGES.map((stage, i) => {
+            const selected = i === activeIndex;
+            return (
+              <button
+                key={stage.name}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                className={`shrink-0 rounded-full border px-5 py-3 text-[16px] font-medium leading-[140%] ${
+                  selected
+                    ? "border-[rgba(159,107,255,0.12)] bg-[#9F6BFF] text-white"
+                    : "border-[rgba(159,107,255,0.4)] bg-[rgba(159,107,255,0.04)] text-[#6E7384]"
+                }`}
+              >
+                {stage.name}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="mt-8 flex flex-col gap-4 lg:hidden">
+          <div className="flex flex-col gap-3">
+            <h3 className="text-[20px] font-bold leading-[110%] text-[#F8FAFC]">
+              {active.name}
+            </h3>
+            <p className="text-[14px] leading-[160%] text-[#A5B0C5]">
+              {active.description}
+            </p>
+          </div>
+          <div className="h-px w-full bg-white/[0.08]" />
+          <div className="relative h-[240px] w-full overflow-hidden rounded-xl">
+            <Image
+              key={active.image}
+              src={active.image}
+              alt={`${active.name} overview`}
+              fill
+              sizes="400px"
+              className="object-cover object-top"
+            />
+          </div>
+        </div>
+
+        <div className="mt-10 hidden flex-col lg:flex">
           {STAGES.map((stage, i) => (
             <div
               key={stage.name}
@@ -80,7 +129,7 @@ export default function Approach() {
         </div>
       </div>
 
-      <div className="relative min-w-0 flex-1 overflow-hidden rounded-2xl border border-[#8777F3]/30 bg-[#0d0c14] p-4 pb-16">
+      <div className="relative hidden min-w-0 flex-1 overflow-hidden rounded-2xl border border-[#8777F3]/30 bg-[#0d0c14] p-4 pb-16 lg:block">
         <Image
           key={active.image}
           src={active.image}

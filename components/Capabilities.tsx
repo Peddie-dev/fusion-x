@@ -34,27 +34,27 @@ const CAPABILITIES: Capability[] = [
 export default function Capabilities() {
   return (
     <section id="services" className="mx-5 pt-20 md:mx-20 md:pt-40">
-      <div className="max-w-[680px]">
-        <p className="text-[12px] font-medium capitalize leading-normal text-[#A5B0C5] md:text-[14px]">
+      <div className="flex max-w-[680px] flex-col gap-4 md:block">
+        <p className="text-[14px] font-medium capitalize leading-[17px] text-[#A5B0C5]">
           CAPABILITIES
         </p>
-        <h2 className="mt-[17px] text-[28px] font-bold leading-tight tracking-[0.96px] text-[#F8FAFC] md:text-[48px]">
+        <h2 className="text-[28px] font-bold leading-[120%] tracking-[0.02em] text-[#F8FAFC] md:mt-[17px] md:text-[48px] md:leading-tight md:tracking-[0.96px]">
           Strategic design support for ambitious product teams.
         </h2>
-        <p className="mt-5 text-[15px] leading-relaxed text-[#A5B0C5] md:mt-8 md:text-[18px] md:leading-[32px]">
+        <p className="text-[16px] leading-6 text-[#A5B0C5] md:mt-8 md:text-[18px] md:leading-[32px]">
           From UX research and product strategy to interface design and
           design systems, FusionX helps teams create products that are
           clear, usable, and built to scale.
         </p>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-3 md:gap-6">
+      <div className="mt-10 flex flex-col gap-6 md:mt-16 md:grid md:grid-cols-3">
         {CAPABILITIES.map((cap) => (
           <div
             key={cap.title}
-            className="rounded-[24px] border border-white/[0.08] bg-[#1B1A24] p-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+            className="flex flex-col gap-6 rounded-[24px] border-[1.5px] border-white/[0.08] bg-[#1B1A24] p-5 shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:p-6"
           >
-            <div className="mb-5 flex h-[180px] w-full items-center justify-center overflow-hidden rounded-[10px] md:h-[201px]">
+            <div className="flex h-[201px] w-full items-center justify-center overflow-hidden rounded-2xl border border-[rgba(135,119,243,0.15)] bg-[linear-gradient(180deg,rgba(255,255,255,0.0016)_0%,rgba(255,255,255,0)_100%)]">
               <Image
                 src={cap.icon}
                 alt=""
@@ -64,18 +64,20 @@ export default function Capabilities() {
               />
             </div>
 
-            <h3 className="text-[22px] font-bold leading-[1.2] text-[#F8FAFC] md:text-[28px]">
-              {cap.title}
-            </h3>
-            <p className="mt-3 text-[13px] leading-[1.6] text-[#A5B0C5]/85 md:text-[16px]">
-              {cap.description}
-            </p>
+            <div className="flex flex-col gap-3">
+              <h3 className="text-[20px] font-bold leading-[120%] text-[#F8FAFC] md:text-[28px]">
+                {cap.title}
+              </h3>
+              <p className="text-[14px] leading-[160%] text-[rgba(165,176,197,0.85)] md:text-[16px]">
+                {cap.description}
+              </p>
+            </div>
 
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               {cap.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-white/[0.08] bg-white/[0.06] px-3 py-1.5 text-[13px] font-medium leading-[1.4] text-white"
+                  className="rounded-xl border border-[rgba(135,119,243,0.12)] bg-[rgba(135,119,243,0.04)] px-4 py-3 text-[12px] font-medium leading-[140%] text-white md:rounded-full md:border-white/[0.08] md:bg-white/[0.06] md:px-3 md:py-1.5 md:text-[13px]"
                 >
                   {tag}
                 </span>

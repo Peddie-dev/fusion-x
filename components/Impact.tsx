@@ -69,104 +69,123 @@ const PROJECTS: Project[] = [
 export default function Impact() {
   return (
     <section className="mx-5 overflow-x-hidden pt-20 md:mx-20 md:pt-40">
-      <p className="text-[12px] font-medium capitalize leading-normal text-[#A5B0C5] md:text-[14px]">
-        IMPACT
-      </p>
-      <h2 className="mt-4 max-w-[720px] text-[28px] font-bold leading-tight tracking-[0.96px] text-[#F8FAFC] lg:text-[48px]">
-        Designing products that deliver results.
-      </h2>
-      <p className="mt-6 max-w-[640px] text-[15px] leading-relaxed text-[#A5B0C5] md:text-[18px] md:leading-[32px]">
-        Research, strategy, and design working together to improve
-        experiences, streamline operations, and create measurable business
-        value.
-      </p>
+      <div className="flex flex-col gap-4">
+        <p className="text-[14px] font-medium capitalize leading-[17px] text-[#A5B0C5]">
+          IMPACT
+        </p>
+        <h2 className="max-w-[720px] text-[28px] font-bold leading-[120%] tracking-[0.02em] text-[#F8FAFC] lg:text-[48px] lg:leading-tight lg:tracking-[0.96px]">
+          Designing products that deliver results.
+        </h2>
+        <p className="max-w-[640px] text-[16px] leading-[160%] text-[#A5B0C5] md:text-[18px] md:leading-[32px]">
+          Research, strategy, and design working together to improve
+          experiences, streamline operations, and create measurable business
+          value.
+        </p>
+      </div>
+      <div className="mt-8 h-px w-full bg-white/[0.08] lg:hidden" />
 
-      <div className="mt-10 flex flex-col lg:mt-16">
+      <div className="mt-10 flex flex-col gap-8 lg:mt-16 lg:gap-0">
         {PROJECTS.map((project) => (
           <div
             key={project.name}
-            className="border-t border-white/[0.08] py-10 lg:py-14"
+            className="lg:border-t lg:border-white/[0.08] lg:py-14"
           >
-            <div className="grid min-w-0 grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-10 xl:gap-16">
-              <div className="min-w-0">
-                <div className="mb-8 flex items-center gap-4 lg:mb-10 lg:gap-6">
-                  <img
-                    src="/figma/impact-title-icon.svg"
-                    alt=""
-                    width={56}
-                    height={56}
-                    className="size-11 shrink-0 lg:size-14"
-                  />
-                  <div className="min-w-0">
-                    <h3 className="text-[28px] font-bold tracking-[-1.44px] text-white lg:text-[40px]">
-                      {project.name}
-                    </h3>
-                    <p
-                      className="mt-1 text-[15px] font-medium tracking-[-0.6px] lg:text-[18px]"
-                      style={{ color: project.categoryColor }}
-                    >
-                      {project.category}
-                    </p>
-                  </div>
+            <div className="grid min-w-0 grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-10 xl:gap-16">
+              <div className="flex items-center gap-6">
+                <img
+                  src="/figma/impact-title-icon.svg"
+                  alt=""
+                  width={56}
+                  height={56}
+                  className="size-14 shrink-0"
+                />
+                <div className="min-w-0">
+                  <h3 className="text-[24px] font-bold leading-8 tracking-[-0.03em] text-white lg:text-[40px] lg:tracking-[-1.44px]">
+                    {project.name}
+                  </h3>
+                  <p className="mt-2 text-[16px] font-medium tracking-[-0.03em] text-[#8777F3] lg:hidden">
+                    {project.category}
+                  </p>
+                  <p
+                    className="mt-1 hidden text-[18px] font-medium tracking-[-0.6px] lg:block"
+                    style={{ color: project.categoryColor }}
+                  >
+                    {project.category}
+                  </p>
                 </div>
+              </div>
 
-                <div className="flex flex-col gap-6">
-                  <div className="flex gap-4">
+              <div
+                className="relative h-[240px] w-full min-w-0 overflow-hidden rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.25)] lg:col-start-2 lg:row-span-2 lg:h-auto lg:aspect-[696/468] lg:max-h-[420px] lg:rounded-[24px]"
+                style={{ backgroundColor: project.imageBg }}
+              >
+                <Image
+                  src={project.image}
+                  alt={`${project.name} product screenshot`}
+                  fill
+                  className="object-contain object-center"
+                  sizes="(min-width: 1024px) 50vw, 400px"
+                />
+              </div>
+
+              <div className="min-w-0">
+                <div className="flex flex-col">
+                  <div className="flex gap-6">
                     <img
                       src="/figma/impact-challenge.svg"
                       alt=""
-                      width={40}
+                      width={48}
                       height={96}
-                      className="h-24 w-9 shrink-0"
+                      className="h-auto w-12 shrink-0"
                     />
-                    <div className="min-w-0">
-                      <p className="text-[18px] font-medium tracking-[-0.24px] text-white lg:text-[22px]">
+                    <div className="min-w-0 pb-5">
+                      <p className="text-[20px] font-medium tracking-[-0.01em] text-white lg:text-[22px]">
                         Challenge
                       </p>
-                      <p className="mt-2 text-[14px] leading-relaxed text-[#A1A7B8] lg:text-[16px]">
+                      <p className="mt-3 text-[16px] leading-[160%] text-[#A1A7B8]">
                         {project.challenge}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-6">
                     <img
                       src="/figma/impact-did.svg"
                       alt=""
-                      width={40}
+                      width={48}
                       height={96}
-                      className="h-24 w-9 shrink-0"
+                      className="h-auto w-12 shrink-0"
                     />
-                    <div className="min-w-0">
-                      <p className="text-[18px] font-medium tracking-[-0.24px] text-white lg:text-[22px]">
+                    <div className="min-w-0 pb-5">
+                      <p className="text-[20px] font-medium tracking-[-0.01em] text-white lg:text-[22px]">
                         What we did
                       </p>
-                      <p className="mt-2 text-[14px] leading-relaxed text-[#A1A7B8] lg:text-[16px]">
+                      <p className="mt-3 text-[16px] leading-[160%] text-[#A1A7B8]">
                         {project.whatWeDid}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-6">
                     <img
                       src="/figma/impact-outcome.svg"
                       alt=""
-                      width={40}
+                      width={48}
                       height={96}
-                      className="h-24 w-9 shrink-0"
+                      className="h-auto w-12 shrink-0"
                     />
-                    <div className="min-w-0">
-                      <p className="text-[18px] font-medium tracking-[-0.24px] text-white lg:text-[22px]">
+                    <div className="min-w-0 pb-5">
+                      <p className="text-[20px] font-medium tracking-[-0.01em] text-white lg:text-[22px]">
                         The Outcome
                       </p>
                       <div className="mt-3 flex flex-col gap-2">
                         {project.outcomes.map((outcome) => (
-                          <div key={outcome} className="flex items-start gap-2">
+                          <div key={outcome} className="flex items-center gap-2.5">
                             <CheckCircle2
-                              size={18}
-                              className="mt-0.5 shrink-0 text-[#8777F3]"
+                              size={20}
+                              className="shrink-0 text-[#8777F3]"
                             />
-                            <p className="text-[14px] text-[#A1A7B8] lg:text-[16px]">
+                            <p className="text-[16px] leading-[160%] text-[#A1A7B8]">
                               {outcome}
                             </p>
                           </div>
@@ -179,35 +198,22 @@ export default function Impact() {
                 {project.caseStudyHref ? (
                   <Link
                     href={project.caseStudyHref}
-                    className="mt-8 flex items-center gap-3 text-[16px] font-medium text-[#8777F3] lg:text-[18px]"
+                    className="mt-6 flex items-center gap-4 text-[18px] font-medium text-[#8777F3]"
                   >
                     View Case Study
                     <img
                       src="/figma/arrow-up-right.svg"
                       alt=""
-                      width={20}
-                      height={20}
-                      className="size-5"
+                      width={24}
+                      height={24}
+                      className="size-6"
                     />
                   </Link>
                 ) : (
-                  <span className="mt-8 flex items-center gap-3 text-[16px] font-medium text-white/30">
+                  <span className="mt-6 flex items-center gap-4 text-[18px] font-medium text-white/30">
                     Case Study Coming Soon
                   </span>
                 )}
-              </div>
-
-              <div
-                className="relative aspect-[3/2] w-full min-w-0 overflow-hidden rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.25)] lg:aspect-[696/468] lg:max-h-[420px]"
-                style={{ backgroundColor: project.imageBg }}
-              >
-                <Image
-                  src={project.image}
-                  alt={`${project.name} product screenshot`}
-                  fill
-                  className="object-contain object-center"
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                />
               </div>
             </div>
           </div>

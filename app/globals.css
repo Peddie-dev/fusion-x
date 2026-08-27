@@ -21,3 +21,19 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-satoshi), Arial, Helvetica, sans-serif;
 }
+
+@keyframes fx-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.fx-marquee {
+  animation: fx-marquee 22s linear infinite;
+}
+
+.fx-hide-scrollbar {
+  scrollbar-width: none;
+}
+.fx-hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
