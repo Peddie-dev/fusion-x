@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 
 const NAV_LINKS = [
-  { label: "Work", href: "/work" },
+  { label: "Work", href: "/#work" },
   { label: "Services", href: "/#services" },
   { label: "About", href: "/#about" },
   { label: "Process", href: "/#process" },

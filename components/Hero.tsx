@@ -80,7 +80,7 @@ export default function Hero() {
             <div className="flex items-center gap-5">
               <StartProjectButton gradient="linear-gradient(270deg, #8777F3 0%, #6E82FF 55%, #4F8CFF 100%)" />
               <a
-                href="/work"
+                href="#work"
                 className="flex h-[50px] min-w-0 flex-1 items-center justify-center rounded-[40px] border border-[#4F8CFF] text-[15px] font-medium text-[#F8FAFC] shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
               >
                 Explore Work
@@ -111,7 +111,7 @@ export default function Hero() {
           <div className="mt-6 flex flex-wrap items-center gap-5">
             <StartProjectButton gradient="linear-gradient(90deg, #4F8CFF 0%, #6E82FF 55%, #8777F3 100%)" />
             <a
-              href="/work"
+              href="#work"
               className="flex h-[50px] w-[180px] shrink-0 items-center justify-center rounded-[40px] border border-[#4F8CFF] text-[15px] font-medium text-[#F8FAFC] shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-colors hover:bg-white/5"
             >
               Explore Work

@@ -276,6 +276,12 @@ export const DESIGN_PRINCIPLES = [
     description: "Turn data into clear insights.",
     icon: BarChart3,
   },
+  {
+    number: "05",
+    title: "Scalable & Flexible",
+    description: "Build for growth and adaptability.",
+    icon: TrendUpIcon,
+  },
 ];
 
 export const DESIGN_APPROACH_INTRO = {
@@ -303,8 +309,8 @@ export const DESIGN_GOALS_INTRO = {
 export const DESIGN_GOALS = [
   "Reduce manual processes and paperwork.",
   "Support users in low-connectivity environments.",
-  "Enable faster, secure digital transactions.",
   "Create intuitive experiences for all user groups.",
+  "Enable faster, secure digital transactions.",
   "Build a scalable foundation for future growth.",
 ];
 

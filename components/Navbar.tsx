@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "Work", href: "/work" },
+  { label: "Work", href: "/#work" },
   { label: "Services", href: "/#services" },
   { label: "Process", href: "/#process" },
   { label: "About", href: "/#about" },
@@ -44,6 +44,19 @@ export default function Navbar() {
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  const handleHashClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    const hash = href.includes("#") ? href.slice(href.indexOf("#") + 1) : "";
+    if (!hash || pathname !== "/") return;
+
+    event.preventDefault();
+    document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    window.history.replaceState(null, "", `#${hash}`);
+    setMenuOpen(false);
+  };
 
   return (
     <nav
@@ -89,13 +102,14 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
+              onClick={(event) => handleHashClick(event, link.href)}
               className={`relative pb-1 text-[15px] font-medium leading-[1.5] transition-colors ${
                 isActive ? "text-[#F8FAFC]" : "text-[#A5B0C5] hover:text-[#F8FAFC]"
               }`}
             >
               {link.label}
               {isActive && (
-                <span className="absolute -bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#4F8CFF]" />
+                <span className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[#8777F3]" />
               )}
             </Link>
           );
@@ -118,7 +132,7 @@ export default function Navbar() {
               <div key={link.label}>
                 <Link
                   href={link.href}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(event) => handleHashClick(event, link.href)}
                   className="flex items-center justify-between text-[20px] font-medium leading-[150%] text-[#A5B0C5]"
                 >
                   <span className={isActive ? "text-white" : ""}>{link.label}</span>

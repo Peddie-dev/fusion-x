@@ -37,3 +37,38 @@ h1, h2, h3, h4, h5, h6 {
 .fx-hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.fx-h-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.fx-h-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scale the 1440px case-study canvas to the viewport without clipping. */
+.cs-fit {
+  --cs-zoom: 1;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  html:has(.cs-fit) {
+    overflow-x: clip;
+  }
+
+  .cs-fit {
+    --cs-zoom: min(1, calc(100svw / 1440px));
+    width: 1440px;
+    max-width: none;
+    zoom: var(--cs-zoom);
+  }
+
+  .cs-fit .cs-sidebar {
+    top: calc(128px / var(--cs-zoom, 1));
+  }
+}
