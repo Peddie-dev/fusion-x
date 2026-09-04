@@ -68,7 +68,7 @@ const PROJECTS: Project[] = [
 
 export default function Impact() {
   return (
-    <section className="mx-5 overflow-x-hidden pt-20 md:mx-10 md:pt-28 lg:mx-20 lg:pt-40">
+    <section className="mx-5 overflow-x-hidden pt-20 md:mx-20 md:pt-40">
       <div className="flex flex-col gap-4">
         <p className="text-[14px] font-medium capitalize leading-[17px] text-[#A5B0C5]">
           IMPACT

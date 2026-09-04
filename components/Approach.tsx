@@ -43,7 +43,7 @@ export default function Approach() {
   return (
     <section
       id="process"
-      className="mx-5 flex flex-col gap-8 overflow-x-hidden pt-20 md:mx-10 lg:mx-20 lg:flex-row lg:gap-12 lg:pt-40 xl:gap-16"
+      className="mx-5 flex flex-col gap-8 overflow-x-hidden pt-20 md:mx-20 lg:flex-row lg:gap-12 lg:pt-40 xl:gap-16"
     >
       <div className="w-full min-w-0 lg:max-w-[380px] lg:shrink-0 xl:max-w-[424px]">
         <div className="flex flex-col gap-4">

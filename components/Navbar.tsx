@@ -66,13 +66,12 @@ export default function Navbar() {
         border border-white/5
         bg-[rgba(27,26,36,0.9)] px-5
         shadow-[0_8px_24px_rgba(0,0,0,0.22)] backdrop-blur-[8.7px]
-        md:top-8 md:mx-10
-        lg:top-10 lg:mx-20 lg:h-[88px] lg:flex-row lg:items-center lg:justify-between
-        lg:gap-0 lg:rounded-full lg:px-[34px] lg:py-5
+        md:top-10 md:mx-20 md:h-[88px] md:flex-row md:items-center md:justify-between
+        md:gap-0 md:rounded-full md:px-[34px] md:py-5
         ${menuOpen ? "gap-10 rounded-[32px] py-5" : "h-[72px] justify-center rounded-full"}
       `}
     >
-      <div className="flex h-8 w-full items-center justify-between lg:h-auto lg:w-auto">
+      <div className="flex h-8 w-full items-center justify-between md:h-auto md:w-auto">
         <Link href="/" aria-label="FusionX home">
           <FusionMark />
         </Link>
@@ -82,7 +81,7 @@ export default function Navbar() {
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
-          className="flex size-8 items-center justify-center text-white lg:hidden"
+          className="flex size-8 items-center justify-center text-white md:hidden"
         >
           {menuOpen ? (
             <X size={22} />
@@ -96,7 +95,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      <div className="hidden items-center gap-[26px] lg:flex">
+      <div className="hidden items-center gap-[26px] md:flex">
         {NAV_LINKS.map((link) => {
           const isActive = pathname === link.href;
           return (
@@ -119,14 +118,14 @@ export default function Navbar() {
 
       <Link
         href="/#contact"
-        className="hidden h-[50px] items-center gap-[13px] rounded-[40px] border border-[#4F8CFF] px-5 py-2.5 text-[15px] font-semibold text-[#F8FAFC] shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-colors hover:bg-white/5 lg:flex"
+        className="hidden h-[50px] items-center gap-[13px] rounded-[40px] border border-[#4F8CFF] px-5 py-2.5 text-[15px] font-semibold text-[#F8FAFC] shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-colors hover:bg-white/5 md:flex"
       >
         Let&apos;s Talk
         <ArrowRight size={16} />
       </Link>
 
       {menuOpen && (
-        <div className="flex flex-col gap-6 lg:hidden">
+        <div className="flex flex-col gap-6 md:hidden">
           {NAV_LINKS.map((link, i) => {
             const isActive = pathname === link.href;
             return (

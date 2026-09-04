@@ -82,7 +82,7 @@ function CircleArrow({
 
 export default function Work() {
   return (
-    <section id="work" className="mx-5 scroll-mt-24 pt-20 md:mx-10 md:scroll-mt-32 md:pt-28 lg:mx-20 lg:pt-40">
+    <section id="work" className="mx-5 scroll-mt-24 pt-20 md:mx-20 md:scroll-mt-32 md:pt-40">
       <div className="flex flex-col gap-4 md:block">
         <p className="text-[14px] font-medium capitalize leading-[17px] text-[#A5B0C5]">
           SELECTED WORK
