@@ -91,7 +91,7 @@ export default function Hero() {
       </div>
 
       {/* Desktop copy — restored pixel layout */}
-      <div className="relative z-10 mx-5 mt-10 hidden md:mx-20 md:mt-[108px] md:block">
+      <div className="relative z-10 mx-5 mt-10 hidden md:mx-10 md:mt-[108px] md:block lg:mx-20">
         <div className="max-w-[754px]">
           <p className="text-[12px] font-medium capitalize leading-normal text-[#A5B0C5]">
             DIGITAL PRODUCT SYSTEMS
@@ -142,7 +142,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-20 mx-5 mt-10 isolate hidden md:mx-20 md:mt-16 md:block">
+      <div className="relative z-20 mx-5 mt-10 isolate hidden md:mx-10 md:mt-16 md:block lg:mx-20">
         <p className="text-[12px] font-medium capitalize leading-normal text-[#A5B0C5]">
           TRUSTED BY FORWARD-THINKING BRANDS
         </p>

@@ -30,8 +30,8 @@ export default function Contact() {
         />
       </div>
 
-      <div className="mx-5 flex flex-col items-start gap-[34px] py-12 md:mx-20 md:flex-row md:items-center md:justify-between md:gap-[80px] md:py-0 md:pb-20">
-        <div className="flex w-full shrink-0 flex-col gap-4 md:w-[480px] md:block">
+      <div className="mx-5 flex flex-col items-start gap-[34px] py-12 md:mx-10 lg:mx-20 lg:flex-row lg:items-center lg:justify-between lg:gap-[80px] lg:py-0 lg:pb-20">
+        <div className="flex w-full shrink-0 flex-col gap-4 lg:w-[min(480px,40%)] lg:block">
           <p className="text-[14px] font-medium uppercase leading-5 tracking-[0.08em] text-[#7F69D4]">
             LET&apos;S WORK TOGETHER
           </p>
@@ -62,17 +62,17 @@ export default function Contact() {
           </button>
         </div>
 
-        <div className="flex w-full shrink-0 flex-col items-center gap-8 rounded-3xl border-[1.5px] border-white/[0.12] bg-white/[0.05] p-5 py-8 shadow-[0_24px_80px_rgba(0,0,0,0.4)] backdrop-blur-[20px] md:grid md:h-[610px] md:w-[620px] md:grid-cols-2 md:gap-x-8 md:gap-y-8 md:p-8">
+        <div className="flex w-full min-w-0 flex-col items-center gap-8 rounded-3xl border-[1.5px] border-white/[0.12] bg-white/[0.05] p-5 py-8 shadow-[0_24px_80px_rgba(0,0,0,0.4)] backdrop-blur-[20px] lg:grid lg:h-[610px] lg:min-w-0 lg:flex-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-8 lg:p-8">
           {CONTACT_ITEMS.map((item, i) => (
             <div
               key={item.label}
-              className={`flex w-full max-w-[320px] flex-col gap-4 md:min-h-[140px] md:max-w-none ${
-                i < CONTACT_ITEMS.length - 1 ? "border-b-[1.5px] border-white/[0.08] pb-4 md:pb-8" : ""
-              } ${i < 4 ? "md:border-b md:border-white/[0.08]" : "md:border-b-0"} ${
-                i % 2 === 0 ? "md:border-r md:border-white/[0.08] md:pr-6" : "md:pl-6"
+              className={`flex w-full max-w-[320px] flex-col gap-4 lg:min-h-[140px] lg:max-w-none ${
+                i < CONTACT_ITEMS.length - 1 ? "border-b-[1.5px] border-white/[0.08] pb-4 lg:pb-8" : ""
+              } ${i < 4 ? "lg:border-b lg:border-white/[0.08]" : "lg:border-b-0"} ${
+                i % 2 === 0 ? "lg:border-r lg:border-white/[0.08] lg:pr-6" : "lg:pl-6"
               }`}
             >
-              <div className="flex items-center gap-3 md:flex-col md:items-start md:gap-4">
+              <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-4">
                 <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl border border-[rgba(127,105,212,0.2)] bg-[rgba(127,105,212,0.08)] text-[#A58DFF] shadow-[0_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-[10px]">
                   <item.icon size={24} />
                 </div>

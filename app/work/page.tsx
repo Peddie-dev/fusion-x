@@ -517,7 +517,7 @@ export default function WorkPage() {
                 </div>
               </div>
 
-              <div className="relative mx-auto h-[294px] w-[360px] min-w-0 overflow-hidden md:mx-0 md:mt-[46px] md:h-[466px] md:w-[571px] md:shrink-0">
+              <div className="relative mx-auto h-[294px] w-full max-w-[360px] min-w-0 overflow-hidden md:mx-0 md:mt-[46px] md:h-[466px] md:w-[571px] md:max-w-none md:shrink-0">
                 <div
                   className="pointer-events-none absolute -right-8 -top-24 size-[492px] rounded-full blur-[130px]"
                   style={{ background: "rgba(94, 219, 83, 0.08)" }}

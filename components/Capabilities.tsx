@@ -33,7 +33,7 @@ const CAPABILITIES: Capability[] = [
 
 export default function Capabilities() {
   return (
-    <section id="services" className="mx-5 pt-20 md:mx-20 md:pt-40">
+    <section id="services" className="mx-5 pt-20 md:mx-10 md:pt-28 lg:mx-20 lg:pt-40">
       <div className="flex max-w-[680px] flex-col gap-4 md:block">
         <p className="text-[14px] font-medium capitalize leading-[17px] text-[#A5B0C5]">
           CAPABILITIES
@@ -48,7 +48,7 @@ export default function Capabilities() {
         </p>
       </div>
 
-      <div className="mt-10 flex flex-col gap-6 md:mt-16 md:grid md:grid-cols-3">
+      <div className="mt-10 flex flex-col gap-6 md:mt-16 lg:grid lg:grid-cols-3">
         {CAPABILITIES.map((cap) => (
           <div
             key={cap.title}

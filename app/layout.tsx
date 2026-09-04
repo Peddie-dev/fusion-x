@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -22,7 +22,13 @@ const satoshi = localFont({
 
 export const metadata: Metadata = {
   title: "FusionX",
-  description: "Your site description",
+  description: "Designing digital experiences that connect and convert.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0d0d12",
 };
 
 export default function RootLayout({

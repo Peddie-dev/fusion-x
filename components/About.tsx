@@ -10,9 +10,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="mx-5 flex flex-col gap-10 pt-20 md:mx-20 md:flex-row md:items-start md:gap-10 md:pt-40"
+      className="mx-5 flex flex-col gap-10 pt-20 md:mx-10 lg:mx-20 lg:flex-row lg:items-start lg:gap-10 lg:pt-40"
     >
-      <div className="flex w-full shrink-0 flex-col gap-4 md:w-[480px] md:block">
+      <div className="flex w-full shrink-0 flex-col gap-4 lg:w-[min(480px,42%)] lg:block">
         <p className="text-[14px] font-medium capitalize leading-[17px] text-[#A5B0C5]">
           ABOUT FUSIONX
         </p>
@@ -40,8 +40,8 @@ export default function About() {
         </a>
       </div>
 
-      <div className="relative flex w-full flex-col gap-4 md:flex-1 md:pb-10">
-        <div className="relative h-[326px] w-full overflow-hidden rounded-[24px] shadow-[0_0_60px_rgba(127,105,212,0.12)] md:h-[620px]">
+      <div className="relative flex w-full min-w-0 flex-col gap-4 lg:flex-1 lg:pb-10">
+        <div className="relative h-[326px] w-full overflow-hidden rounded-[24px] shadow-[0_0_60px_rgba(127,105,212,0.12)] md:h-[480px] lg:h-[620px]">
           <Image
             src="/charlo.png"
             alt="FusionX design process illustration"
@@ -51,11 +51,11 @@ export default function About() {
           />
         </div>
 
-        <div className="flex items-center justify-between rounded-[24px] border border-white/[0.08] bg-[#111018] px-2 py-6 md:absolute md:inset-x-[30px] md:bottom-6 md:h-[180px] md:bg-[rgba(17,16,24,0.72)] md:px-8 md:shadow-2xl md:backdrop-blur-[16px]">
+        <div className="flex items-center justify-between rounded-[24px] border border-white/[0.08] bg-[#111018] px-2 py-6 lg:absolute lg:inset-x-[30px] lg:bottom-6 lg:h-[180px] lg:bg-[rgba(17,16,24,0.72)] lg:px-8 lg:shadow-2xl lg:backdrop-blur-[16px]">
           {STATS.map((stat, i) => (
             <div key={stat.label} className="flex flex-1 items-center">
               <div className="w-full text-center">
-                <div className="font-heading text-[32px] font-medium leading-8 tracking-[-0.03em] text-white md:text-[64px] md:leading-[72px] md:tracking-[-1.92px]">
+                <div className="font-heading text-[32px] font-medium leading-8 tracking-[-0.03em] text-white lg:text-[64px] lg:leading-[72px] lg:tracking-[-1.92px]">
                   {stat.value}
                 </div>
                 <div className="mt-3 text-[12px] leading-5 tracking-[0.12em] text-[#7F69D4] md:text-[14px] md:tracking-[1.68px]">
